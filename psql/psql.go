@@ -41,5 +41,13 @@ func (c *Client) Init() error {
 		return fmt.Errorf("failed to create post table: %v", err)
 	}
 
+	if err := c.CreateSaltTable(); err != nil {
+		return fmt.Errorf("failed to create salt table: %v", err)
+	}
+
+	if err := c.InsertSalt(); err != nil {
+		return fmt.Errorf("failed to insert salt: %v", err)
+	}
+
 	return nil
 }

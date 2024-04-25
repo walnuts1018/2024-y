@@ -1,4 +1,4 @@
-package token
+package random
 
 import (
 	"crypto/rand"
@@ -11,14 +11,7 @@ const Numbers = "0123456789"
 const Alphabets = UpperLetters + LowerLetters
 const Alphanumeric = Alphabets + Numbers
 
-func Generate(base string, n ...int) (string, error) {
-	var length int
-	if len(n) == 0 {
-		length = 32
-	} else {
-		length = n[0]
-	}
-
+func String(length int, base string) (string, error) {
 	b := make([]byte, length)
 	if _, err := rand.Read(b); err != nil {
 		return "", fmt.Errorf("failed to read random: %w", err)
@@ -29,5 +22,4 @@ func Generate(base string, n ...int) (string, error) {
 		result += string(base[int(v)%len(base)])
 	}
 	return result, nil
-
 }

@@ -16,15 +16,7 @@ type User struct {
 	Password string `db:"password"`
 }
 
-func (c *Client) Login(username, password string) (User, error) {
-	var user User
-	if err := c.db.Get(&user, "SELECT * FROM users WHERE username = $1 AND password = $2", username, password); err != nil {
-		return User{}, fmt.Errorf("invalid username or password")
-	}
-	return user, nil
-}
-
-func (c *Client) Register(username, password string) (User, error) {
+func (c *Client) AddUser(username, password string) (User, error) {
 	if _, err := c.GetUser(username); err == nil {
 		return User{}, fmt.Errorf("user already exists")
 	}
