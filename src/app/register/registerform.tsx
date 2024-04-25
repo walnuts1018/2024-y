@@ -17,7 +17,7 @@ export function LoginForm() {
       return;
     }
     try {
-      const res = await fetch("/api/v1/login", {
+      const res = await fetch("/api/v1/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,10 +27,10 @@ export function LoginForm() {
       if (res.status === 200) {
         window.location.href = "/";
       } else {
-        setError("ログインに失敗しました");
+        setError("アカウント登録に失敗しました");
       }
     } catch (e) {
-      setError("ログインに失敗しました");
+      setError("アカウント登録に失敗しました");
     }
   };
 
@@ -64,7 +64,7 @@ export function LoginForm() {
         form="login-form"
         className="p-2 px-4 bg-blue-500 text-white rounded-full"
       >
-        ログイン
+        アカウント登録
       </button>
       <p className="text-black p-2 rounded-lg">{error}</p>
     </div>
