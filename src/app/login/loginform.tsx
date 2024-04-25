@@ -35,7 +35,7 @@ export function LoginForm() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center gap-4 font-Noto">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -46,14 +46,14 @@ export function LoginForm() {
       >
         <input
           type="text"
-          placeholder="Username"
+          placeholder="ユーザーネーム"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="p-2 border border-gray-300 rounded-lg w-80"
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="パスワード"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="p-2 border border-gray-300 rounded-lg w-80"
@@ -62,7 +62,7 @@ export function LoginForm() {
       <button
         type="submit"
         form="login-form"
-        className="p-2 px-4 bg-blue-500 text-white rounded-full"
+        className="p-2 px-4 bg-primary-default hover:bg-primary-dark text-white rounded-full mt-4"
       >
         ログイン
       </button>

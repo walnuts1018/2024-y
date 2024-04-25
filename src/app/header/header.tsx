@@ -9,6 +9,14 @@ export async function Header() {
         <div className="flex justify-center w-full h-20 bg-white">
           <div className="w-11/12 flex items-center justify-between   text-black font-bold font-Nunito text-2xl px-1 space-x-1">
             <div className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="logo"
+                width={40}
+                height={40}
+                style={{ objectFit: "contain" }}
+                className="min-w-[40px] max-w-[40px] mx-1"
+              />
               <Link className="logo" href="/">
                 Y
               </Link>
