@@ -40,7 +40,7 @@ export function LoginForm() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          login();
+          // login()という関数を呼び出してみましょう！
         }}
         className="flex flex-col items-center gap-4"
         id="login-form"

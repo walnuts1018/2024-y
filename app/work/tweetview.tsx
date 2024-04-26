@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 type post = {
   id: number;
-  content: string;
   user_id: number;
+  content: string;
   created_at: string;
 };
 
@@ -62,12 +62,6 @@ export default function TweetView() {
           >
             <p className="text-2xl font-bold font-Nunito text-black">
               User: {tweet.user_id}
-            </p>
-            <p className="text-2xl font-bold font-Nunito text-black">
-              内容: {tweet.content}
-            </p>
-            <p className="text-2xl font-bold font-Nunito text-black">
-              日時: {tweet.created_at}
             </p>
           </div>
         ))}
