@@ -4,6 +4,8 @@ const apiurl = process.env["API_URL"] ?? "https://y.walnuts.dev/api";
 console.log("API_URL: " + apiurl);
 
 const nextConfig = {
+  assetPrefix: "/proxy/3000",
+  basePath: "/proxy/3000",
   async rewrites() {
     return [
       {
