@@ -37,13 +37,13 @@ func (c *Client) CreatePost(content, userName string) (Post, error) {
 
 func (c *Client) GetPost(id int) (Post, error) {
 	var post Post
-	err := c.db.Get(&post, "SELECT * FROM posts WHERE id = $1 ORDER BY created_at ASC", id)
+	err := c.db.Get(&post, "SELECT * FROM posts WHERE id = $1", id)
 	return post, err
 }
 
 func (c *Client) ListPost() ([]Post, error) {
 	var posts []Post
-	err := c.db.Select(&posts, "SELECT * FROM posts")
+	err := c.db.Select(&posts, "SELECT * FROM posts  ORDER BY created_at ASC")
 	if err != nil {
 		return nil, err
 	}
