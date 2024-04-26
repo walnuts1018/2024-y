@@ -13,8 +13,8 @@ type resp = {
   posts: post[];
 };
 
-// 1秒
-const fetchInterval = 1 * 1000;
+// 3秒
+const fetchInterval = 3 * 1000;
 
 export default function TweetView() {
   const [tweets, setTweets] = useState<post[]>([]);
@@ -23,7 +23,16 @@ export default function TweetView() {
     async function fetchPost() {
       const res = await fetch("/api/v1/post/list");
       const data: resp = await res.json();
-      console.log(data);
+
+      // 時系列順に並び替え
+      data.posts.sort((a, b) => {
+        if (a.id < b.id) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+
       setTweets(data.posts);
     }
     fetchPost();

@@ -1,6 +1,6 @@
 "use client";
 import Modal from "react-modal";
-import { use, useState } from "react";
+import { useState } from "react";
 
 export default function PostButton() {
   const [tweetWindowIsOpen, setTweetWindowIsOpen] = useState(false);
@@ -13,6 +13,7 @@ export default function PostButton() {
       <button
         type="button"
         className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full font-semibold"
+        //--- 👇 ---
         onClick={() => setTweetWindowIsOpen(true)}
       >
         投稿する
@@ -30,7 +31,7 @@ export default function PostButton() {
         </button>
         <div className="flex flex-col gap-4 p-4 justify-between items-center w-2/3 h-5/6">
           <textarea
-            placeholder="内容"
+            placeholder="いまどうしてる？"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             className="p-2 border border-gray-300 rounded-lg w-full h-2/3"
