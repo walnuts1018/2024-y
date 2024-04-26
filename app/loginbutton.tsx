@@ -1,9 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export function LoginButton() {
-  const username = sessionStorage.getItem("username");
+  const [username, setUsername] = useState<string | null>(null);
+  useEffect(() => {
+    setUsername(sessionStorage.getItem("username"));
+  }, []);
+
   return (
     <>
       {username == null ? (
