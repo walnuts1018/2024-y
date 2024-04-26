@@ -13,8 +13,12 @@ export default function PostButton() {
       <button
         type="button"
         className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full font-semibold"
-        //--- 👇 ---
-        onClick={() => setTweetWindowIsOpen(true)}
+        //--- 👇👇👇 ---
+        // クリックしたときに、setTweetWindowIsOpenにtrueを渡して、ツイートウィンドウを開こう
+        onClick={() => {
+          console.log("クリックされました");
+        }}
+        //--- 👆👆👆 ---
       >
         投稿する
       </button>
@@ -37,6 +41,7 @@ export default function PostButton() {
             className="p-2 border border-gray-300 rounded-lg w-full h-2/3"
           ></textarea>
 
+          {/* ボタンをおすと、サーバーにツイートが送られます */}
           <button
             type="submit"
             className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full mt-4 font-semibold"
