@@ -1,10 +1,14 @@
 "use client";
 import Modal from "react-modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function PostButton() {
   const [tweetWindowIsOpen, setTweetWindowIsOpen] = useState(false);
-  const username = sessionStorage.getItem("username");
+  const [username, setUsername] = useState<string | null>(null);
+  useEffect(() => {
+    setUsername(sessionStorage.getItem("username"));
+  }, []);
+
   const [content, setContent] = useState("");
 
   Modal.setAppElement("body");
