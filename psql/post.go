@@ -17,10 +17,10 @@ func (c *Client) CreatePostTable() error {
 }
 
 type Post struct {
-	ID        int    `db:"id"`
-	Content   string `db:"content"`
-	UserID    string `db:"user_id"`
-	CreatedAt string `db:"created_at"`
+	ID        int    `db:"id" json:"id"`
+	Content   string `db:"content" json:"content"`
+	UserID    string `db:"user_id" json:"user_id"`
+	CreatedAt string `db:"created_at" json:"created_at"`
 }
 
 func (c *Client) CreatePost(content, userName string) (Post, error) {
