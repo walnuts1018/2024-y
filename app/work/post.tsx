@@ -4,9 +4,7 @@ import { use, useState } from "react";
 
 export default function PostButton() {
   const [tweetWindowIsOpen, setTweetWindowIsOpen] = useState(false);
-
   const username = sessionStorage.getItem("username");
-
   const [content, setContent] = useState("");
 
   Modal.setAppElement("body");
@@ -14,17 +12,7 @@ export default function PostButton() {
     <>
       <button
         type="button"
-        style={{
-          backgroundColor: "#FFA500",
-          color: "#fff",
-          padding: "0.5rem 2rem",
-          borderRadius: "50px",
-          fontSize: "24px",
-          fontWeight: "bold",
-          boxShadow:
-            "0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)",
-          transition: "all 0.15s ease",
-        }}
+        className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full font-semibold"
         onClick={() => setTweetWindowIsOpen(true)}
       >
         投稿する
