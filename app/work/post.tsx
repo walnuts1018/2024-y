@@ -12,7 +12,7 @@ export default function PostButton() {
     <>
       <button
         type="button"
-        className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full font-semibold"
+        className=" border-2"
         //--- 👇👇👇 ---
         // クリックしたときに、setTweetWindowIsOpenにtrueを渡して、ツイートウィンドウを開こう
         onClick={() => {
