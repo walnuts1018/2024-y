@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function LoginForm() {
   const [username, setUsername] = useState("");
@@ -25,6 +25,7 @@ export function LoginForm() {
         body: JSON.stringify({ username, password }),
       });
       if (res.status === 200) {
+        sessionStorage.setItem("username", username);
         window.location.href = "/";
       } else {
         setError("ログインに失敗しました");
@@ -62,7 +63,7 @@ export function LoginForm() {
       <button
         type="submit"
         form="login-form"
-        className="p-2 px-4 bg-primary-default hover:bg-primary-dark text-white rounded-full mt-4"
+        className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full mt-4 font-semibold"
       >
         ログイン
       </button>
