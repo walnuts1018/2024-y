@@ -9,7 +9,7 @@ export function LoginButton() {
       {username == null ? (
         <Link
           href="/login"
-          className="p-2 rounded-full shadow-lg px-8 text-2xl font-bold bg-primary-default hover:bg-primary-dark text-white"
+          className="p-2 rounded-full shadow-lg px-8 text-xl font-bold bg-primary-default hover:bg-primary-dark text-white"
         >
           ログインする
         </Link>

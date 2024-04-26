@@ -14,51 +14,61 @@ export default function PostButton() {
     <>
       <button
         type="button"
-        className="p-2 rounded-full shadow-lg px-8 text-2xl font-bold bg-primary-default hover:bg-primary-dark text-white"
+        style={{
+          backgroundColor: "#FFA500",
+          color: "#fff",
+          padding: "0.5rem 2rem",
+          borderRadius: "50px",
+          fontSize: "24px",
+          fontWeight: "bold",
+          boxShadow:
+            "0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)",
+          transition: "all 0.15s ease",
+        }}
         onClick={() => setTweetWindowIsOpen(true)}
       >
         投稿する
       </button>
       <Modal
         isOpen={tweetWindowIsOpen}
-        className="flex justify-center items-center t-0 l-0 w-full h-full relative"
+        className="flex justify-center items-center w-1/2 h-1/2 relative border-2 border-gray-300 bg-white rounded-lg m-auto mt-16"
       >
         <button
           type="button"
-          className="p-2 px-6 bg-white hover:bg-gray-100 text-2xl text-primary-default rounded-full font-semibold absolute top-4 right-4"
+          className="p-2 bg-white hover:bg-gray-100 text-2xl text-primary-default rounded-full font-semibold absolute top-2 right-4"
           onClick={() => setTweetWindowIsOpen(false)}
         >
           閉じる
         </button>
+        <div className="flex flex-col gap-4 p-4 justify-between items-center w-2/3 h-5/6">
+          <textarea
+            placeholder="内容"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            className="p-2 border border-gray-300 rounded-lg w-full h-2/3"
+          ></textarea>
 
-        <input
-          type="text"
-          placeholder="内容"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="p-2 border border-gray-300 rounded-lg w-80"
-        />
-
-        <button
-          type="submit"
-          className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full mt-4 font-semibold"
-          onClick={async () => {
-            const res = await fetch("/api/v1/post/create", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ content, username }),
-            });
-            if (res.status === 200) {
-              setTweetWindowIsOpen(false);
-            } else {
-              console.error("投稿に失敗しました");
-            }
-          }}
-        >
-          投稿する
-        </button>
+          <button
+            type="submit"
+            className="p-2 px-6 bg-primary-default hover:bg-primary-dark text-2xl text-white rounded-full mt-4 font-semibold"
+            onClick={async () => {
+              const res = await fetch("/api/v1/post/create", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ content, username }),
+              });
+              if (res.status === 200) {
+                setTweetWindowIsOpen(false);
+              } else {
+                console.error("投稿に失敗しました");
+              }
+            }}
+          >
+            投稿する
+          </button>
+        </div>
       </Modal>
     </>
   );

@@ -52,13 +52,13 @@ export default function TweetView() {
             className="flex flex-col gap-4 p-4 border-b-2 border-gray-300"
           >
             <p className="text-2xl font-bold font-Nunito text-black">
-              {tweet.user_id}
+              User: {tweet.user_id}
             </p>
             <p className="text-2xl font-bold font-Nunito text-black">
-              {tweet.content}
+              内容: {tweet.content}
             </p>
             <p className="text-2xl font-bold font-Nunito text-black">
-              {tweet.created_at}
+              日時: {tweet.created_at}
             </p>
           </div>
         ))}
