@@ -16,9 +16,4 @@ const nextConfig = {
   },
 };
 
-module.exports = {
-  assetPrefix: "/proxy/3000",
-  basePath: "/proxy/3000",
-};
-
 export default nextConfig;
